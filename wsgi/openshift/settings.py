@@ -37,10 +37,10 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'pythonok',
-            'USER': 'adminctdikkl',                      # Not used with sqlite3.
-            'PASSWORD': 'BlGXW2nCVTvj',                  # Not used with sqlite3.
-            'HOST': '127.2.119.2',                      # Set to empty string for localhost. Not used with sqlite3.
+            'NAME': 'tgdb',
+            'USER': 'postgres',                      # Not used with sqlite3.
+            'PASSWORD': 'd',                  # Not used with sqlite3.
+            'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
             'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
         }
     }
@@ -70,22 +70,23 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.environ.get('OPENSHIFT_DATA_DIR', '')
+
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT',os.path.join(os.path.dirname(__file__), 'media'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = os.environ.get('MEDIA_URL', '/media/')
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_DIR, '..', 'static')
+STATIC_ROOT = os.environ.get('STATIC_ROOT',os.path.join(os.path.dirname(__file__), 'static'))
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
