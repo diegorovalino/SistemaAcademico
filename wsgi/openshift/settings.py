@@ -37,9 +37,9 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'tgdb',
+            'NAME': 'metodologiaxp',
             'USER': 'postgres',                      # Not used with sqlite3.
-            'PASSWORD': 'd',                  # Not used with sqlite3.
+            'PASSWORD': 'p	',                  # Not used with sqlite3.
             'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
             'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
         }
